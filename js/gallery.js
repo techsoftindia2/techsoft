@@ -1,10 +1,10 @@
     const galleryImages = [
         {src: "../techsoft/img/gallery/photo_1.jpg", desc: "TechSoft India, Lucknow"},
         {src: "../techsoft/img/gallery/photo_2.jpg", desc: "TechSoft India, Lucknow"},
-        {src: "../img/gallery/photo_3.jpg", desc: "TechSoft India, Lucknow"},
-        {src: "../img/gallery/photo_4.jpg", desc: "TechSoft India, Lucknow"},
-        {src: "../img/gallery/photo_5.jpg", desc: "TechSoft India, Lucknow"},
-        {src: "../img/gallery/photo_6.jpg", desc: "TechSoft India, Lucknow"}
+        {src: "../techsoft/img/gallery/photo_3.jpg", desc: "TechSoft India, Lucknow"},
+        {src: "../techsoft/img/gallery/photo_4.jpg", desc: "TechSoft India, Lucknow"},
+        {src: "../techsoft/img/gallery/photo_5.jpg", desc: "TechSoft India, Lucknow"},
+        {src: "../techsoft/img/gallery/photo_6.jpg", desc: "TechSoft India, Lucknow"}
     ];
 
     let galleryCurrentIndex = 0;
