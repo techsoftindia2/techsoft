@@ -9,7 +9,7 @@
     <meta content="TechSoft India Lucknow-Learn to code" name="description">
 
     <!-- Favicon -->
-    <!-- <link href="img/favicon.ico" rel="icon"> -->
+    <link href="img/logo.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,79 +26,15 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/gallery.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/floating-banner.css">
 
 
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center text-white">
-                    <small><i class="fa fa-phone-alt mr-2"></i>+91-9651704432</small>
-                    <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>techsoftindia2@gmail.com</small>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <!-- <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i> -->
-                    </a>
-                    <a class="text-white px-2" target="_blank" href="https://www.instagram.com/techsoft_india/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-white pl-2" target="_blank" href="https://www.youtube.com/@CodingSphere">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="index.html" class="navbar-brand ml-lg-3">
-                <h1 class="m-0  text-primary">
-                    <!-- <i class="fa fa-book-reader mr-3"></i> -->
-                    Techsoft India
-                </h1>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                <div class="navbar-nav mx-auto py-0">
-                    <!-- <a href="index.html" class="nav-item nav-link active">Home</a> -->
-                    <a href="#about" class="nav-item nav-link">About</a>
-                    <a href="#features" class="nav-item nav-link">Features</a>
-                    <a href="#gallery" class="nav-item nav-link">Gallery</a>
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="detail.html" class="dropdown-item">Course Detail</a>
-                            <a href="feature.html" class="dropdown-item">Our Features</a>
-                            <a href="team.html" class="dropdown-item">Instructors</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        </div>
-                    </div> -->
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
-                </div>
-                <!-- <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Join Us</a> -->
-            </div>
-        </nav>
-    </div>
-    <!-- Navbar End -->
+    <!-- Dynamic Header -->
+    <div id="header-placeholder"></div>
 
 
     <!-- Header Start -->
@@ -229,7 +165,7 @@
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/feature.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="img/feature3.jpg" style="object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -732,6 +668,16 @@
     </div>
     <!-- Footer End -->
 
+    <!-- Floating Summer Training Announcement -->
+    <div id="summer-announcement" class="floating-announcement-wrap">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVbDQYMgPoqx5vcSyzWAW3rFgtCo9Bkt59cK1gHaYVStCOpQ/viewform?usp=dialog" target="_blank" class="floating-announcement" aria-label="Summer Training 2026 Registration">
+            <!-- <span class="title">Summer Training 2026</span> -->
+            <span class="title">Summer Training 2026</span>
+            <span class="call-to-action">Enquire Now!</span>
+        </a>
+        <button type="button" class="close-announcement" onclick="document.getElementById('summer-announcement').style.display='none'">&times;</button>
+    </div>
+
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary rounded-0 btn-lg-square back-to-top"><i
@@ -749,6 +695,21 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/gallery.js"></script>
+    <script>
+        $(function(){
+          $("#header-placeholder").load("header.html");
+          $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('summer-announcement');
+            if (banner) {
+                // Add 'show' class after a short delay to trigger CSS transition
+                setTimeout(() => banner.classList.add('show'), 500); // 500ms delay
+            }
+        });
+    </script>
 </body>
 
 </html>

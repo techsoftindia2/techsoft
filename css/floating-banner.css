@@ -1,0 +1,140 @@
+/* === Floating Announcement Wrapper === */
+.floating-announcement-wrap {
+    position: fixed;
+    top: 200px; /* Positioned 200px from top */
+    left: 50%;
+    transform: translate(-50%, -600px); /* Start off-screen (higher than the top margin) */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Show animation */
+.floating-announcement-wrap.show {
+    transform: translate(-50%, 0); /* Settle exactly at the 200px mark */
+    opacity: 1;
+}
+
+/* === Announcement Box === */
+.floating-announcement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 80px; /* Increased vertical and horizontal padding */
+    border-radius: 16px;
+    text-decoration: none;
+
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+
+    border: 3px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.floating-announcement:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* === Title === */
+.floating-announcement .title {
+    font-size: 3.5rem; /* Significantly larger title */
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === CTA Button === */
+.floating-announcement .call-to-action {
+    font-size: 1.8rem; /* Larger CTA text */
+    font-weight: 600;
+
+    background: var(--warning);
+    color: var(--dark);
+
+    padding: 8px 25px;
+    border-radius: 50px;
+
+    animation: pulse 2s infinite;
+}
+
+/* === Close Button === */
+.close-announcement {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+
+    width: 45px; /* Scaled up close button to match banner size */
+    height: 45px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: #fff;
+    color: var(--secondary);
+
+    font-size: 28px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: 0.2s;
+}
+
+.close-announcement:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+/* === Animation === */
+@keyframes pulse {
+    0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0.6); }
+    70%  { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255,193,7,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,193,7,0); }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .floating-announcement-wrap {
+        width: 70%;
+    }
+
+    .floating-announcement {
+        width: 100%;
+        padding: 15px 25px;
+    }
+
+    .floating-announcement .title {
+        font-size: 1.4rem;
+    }
+
+    .floating-announcement .call-to-action {
+        font-size: 1rem;
+        padding: 6px 18px;
+    }
+
+    .close-announcement {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+    }
+}
+
+.floating-announcement,
+.floating-announcement:hover,
+.floating-announcement:focus,
+.floating-announcement:active {
+    text-decoration: none !important;
+}
