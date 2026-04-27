@@ -1,4 +1,4 @@
-/* Floating Summer Training Announcement
+/* Floating Summer Training Announcement */
 .floating-announcement-wrap {
     position: fixed;
     top: 40px;
@@ -91,9 +91,60 @@
 }
 
 @media (max-width: 576px) {
-    .floating-announcement-wrap { top: 20px; }
-    .floating-announcement { padding: 15px 25px; border-width: 2px; }
+    .floating-announcement-wrap { top: 20px; width: 90vw; }
+    .floating-announcement { width: 100%; padding: 15px 25px; border-width: 2px; }
     .floating-announcement .title { font-size: 1.2rem; letter-spacing: 1px; }
     .floating-announcement .call-to-action { font-size: 0.9rem; padding: 5px 20px; }
     .close-announcement { top: -10px; right: -10px; width: 30px; height: 30px; font-size: 20px; }
-} */
+}
+
+/* Quiz Page Styles */
+.quiz-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid var(--light);
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid var(--light);
+    border-radius: 12px;
+    background: #fff;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.quiz-option:hover:not(:disabled) {
+    background-color: var(--light);
+    border-color: var(--primary);
+}
+
+.quiz-option.correct {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724 !important;
+}
+
+.quiz-option.wrong {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24 !important;
+    animation: quiz-shake 0.4s ease-in-out;
+}
+
+@keyframes quiz-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}

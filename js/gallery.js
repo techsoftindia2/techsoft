@@ -1,93 +1,52 @@
 const galleryImages = [
-    {src: "../img/gallery/photo_1.jpg", desc: "TechSoft India, Lucknow"},
-    {src: "../img/gallery/photo_2.jpg", desc: "TechSoft India, Lucknow"},
-    {src: "../img/gallery/photo_3.jpg", desc: "TechSoft India, Lucknow"},
-    {src: "../img/gallery/photo_4.jpg", desc: "TechSoft India, Lucknow"},
-    {src: "../img/gallery/photo_5.jpg", desc: "TechSoft India, Lucknow"},
-    {src: "../img/gallery/photo_6.jpg", desc: "TechSoft India, Lucknow"}
+    {src: "img/gallery/photo_1.jpg", desc: "Our Classroom Session"},
+    {src: "img/gallery/photo_2.jpg", desc: "Interactive Learning"},
+    {src: "img/gallery/photo_3.jpg", desc: "Hands-on Coding Practice"},
+    {src: "img/gallery/photo_4.jpg", desc: "Group Discussions"},
+    {src: "img/gallery/photo_5.jpg", desc: "Project Development"},
+    {src: "img/gallery/photo_6.jpg", desc: "Mentorship in Action"}
 ];
 
-let galleryCurrentIndex = 0;
-let isAnimating = false;
+$(document).ready(function () {
+    const $carousel = $(".gallery-carousel");
 
-const galleryCarousel = document.querySelector(".gallery-carousel");
-let galleryImageElement = document.getElementById("gallery-image");
-const galleryDescriptionElement = document.getElementById("gallery-description");
+    // Dynamically inject images into the carousel
+    galleryImages.forEach(img => {
+        $carousel.append(`
+            <div class="gallery-item">
+                <div class="position-relative overflow-hidden" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img class="img-fluid w-100" src="${img.src}" alt="${img.desc}" style="height: 250px; object-fit: cover;">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="m-0">${img.desc}</h5>
+                    </div>
+                </div>
+            </div>
+        `);
+    });
 
-function galleryShowImage(newIndex, direction) {
-    if (isAnimating) return; // prevent multiple triggers
-    isAnimating = true;
-
-    const oldImage = galleryImageElement;
-    const newImage = document.createElement("img");
-
-    // set up new image
-    newImage.src = galleryImages[newIndex].src;
-    newImage.alt = galleryImages[newIndex].desc;
-    newImage.className = "gallery-image";
-
-    // starting position (off-screen)
-    newImage.classList.add(direction === "next" ? "slide-in-right" : "slide-in-left");
-
-    // add new image to carousel
-    galleryCarousel.appendChild(newImage);
-
-    // force reflow to trigger transition
-    void newImage.offsetWidth;
-
-    // animate
-    oldImage.classList.add(direction === "next" ? "slide-out-left" : "slide-out-right");
-    newImage.classList.remove("slide-in-left", "slide-in-right");
-    newImage.classList.add("slide-active");
-
-    // cleanup after animation
-    newImage.addEventListener("transitionend", () => {
-        galleryCarousel.removeChild(oldImage);
-        newImage.id = "gallery-image"; 
-        galleryImageElement = newImage; // update reference
-        galleryDescriptionElement.textContent = galleryImages[newIndex].desc;
-        galleryCurrentIndex = newIndex;
-        isAnimating = false;
-    }, { once: true });
-}
-
-function galleryPrevImage() {
-    const newIndex = (galleryCurrentIndex - 1 + galleryImages.length) % galleryImages.length;
-    galleryShowImage(newIndex, "prev");
-}
-
-function galleryNextImage() {
-    const newIndex = (galleryCurrentIndex + 1) % galleryImages.length;
-    galleryShowImage(newIndex, "next");
-}
-
-// 🔹 Keyboard navigation
-document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowLeft") {
-        galleryPrevImage();
-    } else if (event.key === "ArrowRight") {
-        galleryNextImage();
-    }
-});
-
-// 🔹 Swipe support for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-galleryCarousel.addEventListener("touchstart", function (event) {
-    touchStartX = event.changedTouches[0].screenX;
-});
-
-galleryCarousel.addEventListener("touchend", function (event) {
-    touchEndX = event.changedTouches[0].screenX;
-    const swipeDistance = touchEndX - touchStartX;
-    const swipeThreshold = 50;
-
-    if (Math.abs(swipeDistance) > swipeThreshold) {
-        if (swipeDistance > 0) {
-            galleryPrevImage();
-        } else {
-            galleryNextImage();
+    // Initialize Owl Carousel with existing project styles
+    $carousel.owlCarousel({
+        autoplay: true,
+        smartSpeed: 1500,
+        margin: 30,
+        dots: true,
+        loop: true,
+        responsive: {
+            0: {
+                items: 1,
+                dots: true,
+                margin: 0
+            },
+            576: {
+                items: 1,
+                margin: 0
+            },
+            768: {
+                items: 2
+            },
+            992: {
+                items: 3
+            }
         }
-    }
+    });
 });
