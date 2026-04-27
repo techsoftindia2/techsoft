@@ -1,13 +1,13 @@
 const galleryImages = [
-    {src: "img/gallery/photo_1.jpg", desc: "Our Classroom Session"},
-    {src: "img/gallery/photo_2.jpg", desc: "Interactive Learning"},
-    {src: "img/gallery/photo_3.jpg", desc: "Hands-on Coding Practice"},
-    {src: "img/gallery/photo_4.jpg", desc: "Group Discussions"},
-    {src: "img/gallery/photo_5.jpg", desc: "Project Development"},
-    {src: "img/gallery/photo_6.jpg", desc: "Mentorship in Action"}
+ {src: "img/gallery/photo_1.jpg", desc: "Our Classroom Session"},
+ {src: "img/gallery/photo_2.jpg", desc: "Interactive Learning"},
+ {src: "img/gallery/photo_3.jpg", desc: "Hands-on Coding Practice"},
+ {src: "img/gallery/photo_4.jpg", desc: "Group Discussions"},
+ {src: "img/gallery/photo_5.jpg", desc: "Project Development"},
+ {src: "img/gallery/photo_6.jpg", desc: "Mentorship in Action"}
 ];
 
-$(document).ready(function () {
+$(document).ready(function() {
     const $carousel = $(".gallery-carousel");
 
     // Dynamically inject images into the carousel

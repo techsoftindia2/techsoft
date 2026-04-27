@@ -1,35 +1,5 @@
-const allQuizData = [
-    {
-        question: "Which language is primarily used for Web Styling?",
-        options: ["HTML", "CSS", "Python", "Java"],
-        correct: 1,
-        tags: ["Web Development", "Frontend", "CSS"]
-    },
-    {
-        question: "Which HTML tag is used to define an internal style sheet?",
-        options: ["<script>", "<css>", "<style>", "<design>"],
-        correct: 2,
-        tags: ["Web Development", "Frontend", "HTML"]
-    },
-    {
-        question: "What does DSA stand for?",
-        options: ["Data System Analysis", "Digital Software Architecture", "Data Structures and Algorithms", "Direct System Access"],
-        correct: 2,
-        tags: ["Data Structures", "Computer Science", "Algorithms"]
-    },
-    {
-        question: "Which of the following is a Linear Data Structure?",
-        options: ["Tree", "Graph", "Array", "Binary Search Tree"],
-        correct: 2,
-        tags: ["Data Structures", "Programming Fundamentals"]
-    },
-    {
-        question: "Which of these is NOT a Python data type?",
-        options: ["List", "Tuple", "Dict", "Class"],
-        correct: 3,
-        tags: ["Python", "Programming", "Backend"]
-    }
-];
+// quiz.js
+import { allQuizData } from './quizData.js';
 
 let filteredQuizData = [];
 let currentQuestionIndex = 0;
@@ -139,4 +109,7 @@ function showResults() {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', initCategorySelection);
+document.addEventListener('DOMContentLoaded', () => {
+    initCategorySelection();
+    document.getElementById('next-btn').addEventListener('click', nextQuestion);
+});
