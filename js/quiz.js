@@ -22,33 +22,85 @@ function initCategorySelection() {
         ? allQuizData.filter(q => q.tags.includes(subject))
         : allQuizData;
 
-    // Extract unique tags from the filtered subject data, excluding the subject tag itself
-    const tags = [...new Set(subjectData.flatMap(item => item.tags))].filter(t => t !== subject);
+    // Count occurrences of each tag within the filtered subject data
+    const tagCounts = subjectData.reduce((acc, q) => {
+        q.tags.forEach(tag => {
+            if (tag !== subject) {
+                acc[tag] = (acc[tag] || 0) + 1;
+            }
+        });
+        return acc;
+    }, {});
+
+    // Get unique tags and sort them alphabetically
+    const tags = Object.keys(tagCounts).sort();
+    
     const categoryButtons = document.getElementById('category-buttons');
     const categorySelection = document.getElementById('category-selection');
     const quizContent = document.getElementById('quiz-content');
+    const searchInput = document.getElementById('category-search');
 
     categorySelection.style.display = 'block';
     quizContent.style.display = 'none';
-    categoryButtons.innerHTML = '';
 
-    tags.forEach(tag => {
-        const btn = document.createElement('button');
-        btn.className = 'btn btn-outline-primary m-2 px-4 py-2 text-uppercase font-weight-bold';
-        btn.innerText = tag;
-        btn.onclick = () => startQuiz(tag);
-        categoryButtons.appendChild(btn);
-    });
+    // Helper function to render buttons based on a filter
+    const renderButtons = (filter = '') => {
+        categoryButtons.innerHTML = '';
+        const searchTerm = filter.toLowerCase().trim();
+
+        // Add "Mix Mode" button if it matches search or search is empty
+        if (!searchTerm || "mix mode".includes(searchTerm)) {
+            const mixBtn = document.createElement('button');
+            mixBtn.className = 'btn btn-primary m-2 px-4 py-2 text-uppercase font-weight-bold d-flex align-items-center shadow-sm';
+            mixBtn.innerHTML = `Mix Mode <span class="tag-badge bg-white text-primary">${subjectData.length}</span>`;
+            mixBtn.onclick = () => startQuiz('Mixed');
+            categoryButtons.appendChild(mixBtn);
+        }
+
+        const filteredTags = tags.filter(tag => tag.toLowerCase().includes(searchTerm));
+
+        if (filteredTags.length === 0) {
+            categoryButtons.innerHTML = '<div class="text-muted my-4">No matching categories found.</div>';
+            return;
+        }
+
+        filteredTags.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'btn btn-outline-primary m-2 px-4 py-2 text-uppercase font-weight-bold';
+            btn.innerHTML = `${tag} <span class="tag-badge">${tagCounts[tag]}</span>`;
+            btn.onclick = () => startQuiz(tag);
+            categoryButtons.appendChild(btn);
+        });
+    };
+
+    // Set up search listener
+    if (searchInput) {
+        searchInput.value = ''; // Clear search on load
+        searchInput.oninput = (e) => renderButtons(e.target.value);
+    }
+
+    // Initial render
+    renderButtons();
 }
 
 function startQuiz(tag) {
     // Filter questions that contain the selected tag in their tags array
-    filteredQuizData = subjectData.filter(q => q.tags.includes(tag));
+    if (tag === 'Mixed') {
+        // Mix Mode: Take questions from all available categories for the current subject
+        filteredQuizData = [...subjectData];
+    } else {
+        filteredQuizData = subjectData.filter(q => q.tags.includes(tag));
+    }
 
     // Shuffle the filtered questions using Fisher-Yates algorithm
     for (let i = filteredQuizData.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [filteredQuizData[i], filteredQuizData[j]] = [filteredQuizData[j], filteredQuizData[i]];
+    }
+
+    // Limit the quiz to a batch of 10 questions if more are available
+    if (filteredQuizData.length > 10) {
+        filteredQuizData = filteredQuizData.slice(0, 10);
     }
 
     currentQuestionIndex = 0;
@@ -83,6 +135,22 @@ function renderQuiz() {
     }
 
     questionEl.innerText = data.question;
+
+    // Display image if available
+    let imageContainer = document.getElementById('quiz-image-container');
+    if (!imageContainer) {
+        imageContainer = document.createElement('div');
+        imageContainer.id = 'quiz-image-container';
+        imageContainer.className = 'text-center mb-4';
+        questionEl.after(imageContainer);
+    }
+
+    if (data.image) {
+        imageContainer.innerHTML = `<img src="${data.image}" class="img-fluid rounded shadow-sm" alt="Question Illustration" style="max-height: 350px;">`;
+        imageContainer.style.display = 'block';
+    } else {
+        imageContainer.style.display = 'none';
+    }
 
     // Display code snippet if available
     let codeContainer = document.getElementById('quiz-code-container');
@@ -164,6 +232,11 @@ function showResults() {
     filteredQuizData.forEach((item, index) => {
         const userAnswer = userAnswers[index];
         const isCorrect = userAnswer.isCorrect;
+        const imageSnippet = item.image ? `
+            <div class="text-center mb-3">
+                <img src="${item.image}" class="img-fluid rounded border" alt="Review Image" style="max-height: 150px;">
+            </div>
+        ` : '';
         const codeSnippet = item.code ? `
             <div class="code-snippet-container mb-2" style="box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 10px rgba(40, 120, 235, 0.1);">
                 <pre class="p-2 small"><code>${escapeHtml(item.code)}</code></pre>
@@ -175,6 +248,7 @@ function showResults() {
                 <div class="card border-${isCorrect ? 'success' : 'danger'} shadow-sm">
                     <div class="card-body">
                         <h6 class="font-weight-bold">Q${index + 1}: ${item.question}</h6>
+                        ${imageSnippet}
                         ${codeSnippet}
                         <div class="small mt-2">
                             <p class="mb-1"><strong>Your Answer:</strong> <span class="${isCorrect ? 'text-success' : 'text-danger'}">${item.options[userAnswer.selectedIndex]} <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'} ml-1"></i></span></p>
