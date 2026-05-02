@@ -3,17 +3,244 @@
 
 export const allQuizData = [
   {
+    question: "Character class methods are found in which package?",
+    code: "",
+    options: ["java.util", "java.lang", "java.awt", "java.io"],
+    correct: 1,
+    tags: ["Java", "Packages", "ICSE"],
+    explanation: "The Character class belongs to the java.lang package."
+  },
+
+  {
+    question: "What will System.out.println('Z' + 32); display?",
+    code: `System.out.println('Z' + 32);`,
+    options: ["Z", "z", "122", "154"],
+    correct: 2,
+    tags: ["Java", "Operators", "ICSE"],
+    explanation: "Character 'Z' has ASCII value 90. 90 + 32 = 122."
+  },
+
+  {
+    question: "How many bytes are occupied by double x[] = {2.5,4.5,5.5,6.4}; ?",
+    code: `double x[] = {2.5,4.5,5.5,6.4};`,
+    options: ["16", "4", "8", "32"],
+    correct: 3,
+    tags: ["Java", "Array", "Memory", "ICSE"],
+    explanation: "A double occupies 8 bytes. 4 elements × 8 bytes = 32 bytes."
+  },
+
+  {
+    question: "What is the output of 42/6%2 ?",
+    code: `System.out.println(42/6%2);`,
+    options: ["1", "10", "2", "0"],
+    correct: 0,
+    tags: ["Java", "Operators", "Arithmetic", "ICSE"],
+    explanation: "42/6 = 7 and 7%2 = 1."
+  },
+
+  {
+    question: "What is the index of Barcode Scanner in the 2D array P[2][3]?",
+    code: "",
+    options: ["P[1][1]", "P[0][1]", "P[1][2]", "P[0][0]"],
+    correct: 0,
+    tags: ["Java", "2D Array", "ICSE"],
+    explanation: "Barcode Scanner is located in row 1 and column 1."
+  },
+
+  {
+    question: "Which of the following is a user-defined data type?",
+    code: "",
+    options: ["only array", "1 and 3", "only double", "only boolean"],
+    correct: 1,
+    tags: ["Java", "Data Types", "OOP", "ICSE"],
+    explanation: "Class and array are user-defined/reference data types."
+  },
+
+  {
+    question: "Which loop is an infinite loop?",
+    code: "",
+    options: [
+      "for(int i=1;i<=10;i++)",
+      "for(int i=2;i!=0;i-=3)",
+      "for(int i=5;i<=5;i++)",
+      "for(int i=1;i>=1;i--)"
+    ],
+    correct: 3,
+    tags: ["Java", "Loops", "ICSE"],
+    explanation: "The condition i>=1 remains true forever because i decreases continuously."
+  },
+
+  {
+    question: "What is the output of Math.max(-7, Math.min(-5,-4))?",
+    code: `System.out.println(Math.max(-7, Math.min(-5,-4)));`,
+    options: ["-5", "-4", "-7", "error"],
+    correct: 0,
+    tags: ["Java", "Math Class", "ICSE"],
+    explanation: "Math.min(-5,-4) gives -5. Math.max(-7,-5) gives -5."
+  },
+
+  {
+    question: "Which statement is true for Game cricket = new Game(); ?",
+    code: `Game cricket = new Game();`,
+    options: [
+      "Game is an object of cricket class",
+      "New keyword creates object Game",
+      "Game is a class and cricket is an object",
+      "Game and cricket are objects"
+    ],
+    correct: 2,
+    tags: ["Java", "OOP", "Objects", "ICSE"],
+    explanation: "Game is the class name and cricket is the object reference."
+  },
+
+  {
+    question: "Post office is an example of which access specifier?",
+    code: "",
+    options: ["public", "local", "protected", "private"],
+    correct: 0,
+    tags: ["Java", "Access Specifiers", "ICSE"],
+    explanation: "A post office is accessible publicly, similar to the public access specifier."
+  },
+
+  {
+    question: "Why does break avoid fall-through in switch?",
+    code: "",
+    options: [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true and R is false",
+      "A is false and R is true"
+    ],
+    correct: 0,
+    tags: ["Java", "Switch", "Control Statements", "ICSE"],
+    explanation: "break stops execution after one case, preventing fall-through."
+  },
+
+  {
+    question: "Which programming construct is used when repeating side stretch 10 times?",
+    code: "",
+    options: ["if", "switch", "for", "if else if"],
+    correct: 2,
+    tags: ["Java", "Loops", "ICSE"],
+    explanation: "A for loop is used for repeating actions a fixed number of times."
+  },
+
+  {
+    question: "What is the index of the last element of array ar[]?",
+    code: "",
+    options: ["ar.length()", "ar[].length", "ar.length()-1", "ar.length-1"],
+    correct: 3,
+    tags: ["Java", "Arrays", "ICSE"],
+    explanation: "Array indexing starts at 0, so the last index is length - 1."
+  },
+
+  {
+    question: "Why is a clock an example of nested loops?",
+    code: "",
+    options: [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true and R is false",
+      "A is false and R is true"
+    ],
+    correct: 0,
+    tags: ["Java", "Nested Loops", "ICSE"],
+    explanation: "Minutes cycle repeatedly within each hour, similar to nested loops."
+  },
+
+  {
+    question: "Which pair of methods causes compile-time error due to incorrect overloading?",
+    code: "",
+    options: [
+      "void test(int a,int b) and void test(double a,double b)",
+      "void test(int a,double b) and void test(double a,int b)",
+      "void test(int a,double b) and void test(int a)",
+      "void test(int a) and int test(int a)"
+    ],
+    correct: 3,
+    tags: ["Java", "Method Overloading", "ICSE"],
+    explanation: "Method overloading cannot differ only by return type."
+  },
+
+  {
+    question: "Which statement converts \"25\" to 25.0?",
+    code: "",
+    options: [
+      "Double.Parsedouble(\"25\")",
+      "Double.parse(\"25\")",
+      "Double.parseDouble(\"25\")",
+      "Double.parseDouble(25)"
+    ],
+    correct: 2,
+    tags: ["Java", "Wrapper Class", "ICSE"],
+    explanation: "Double.parseDouble() converts a String to double."
+  },
+
+  {
+    question: "What is the output of the following program?",
+    code: `int p=0;
+for(p=4; p>0; p-=2);
+System.out.print(p);
+System.out.println(p);`,
+    options: ["42", "4200", "0", "00"],
+    correct: 3,
+    tags: ["Java", "Loops", "Output", "ICSE"],
+    explanation: "The semicolon after for loop makes it empty. Final value of p becomes 0 and prints twice."
+  },
+
+  {
+    question: "What is the output of the statement with escaped quotes?",
+    code: `System.out.println("I said, \\"It's wise to obey elders.\\"");`,
+    options: [
+      "I said,'It is wise to obey elders.'",
+      `I said, "It's wise to obey elders."`,
+      "I said, It's wise to elders.",
+      `"It's wise to obey elders."`
+    ],
+    correct: 1,
+    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    explanation: "Escaped double quotes are printed as part of the output."
+  },
+
+  {
+    question: "What is the output of \"ANGER\".compareTo(\"ANGEL\") ?",
+    code: `"ANGER".compareTo("ANGEL")`,
+    options: ["3", "-6", "6", "0"],
+    correct: 2,
+    tags: ["Java", "String", "compareTo", "ICSE"],
+    explanation: "Comparison occurs at R and L. ASCII difference is 82 - 76 = 6."
+  },
+
+  {
+    question: "Choose the correct order to calculate factorial of 4.",
+    code: `
+for(k=1;k<=4;k++)
+return fa;
+long fa=1,k;
+fa*=k;
+`,
+    options: [
+      "1,2,3,4",
+      "3,1,4,2",
+      "3,1,2,4",
+      "1,3,2,4"
+    ],
+    correct: 1,
+    tags: ["Java", "Factorial", "Loops", "ICSE"],
+    explanation: "Variables must be declared first, then loop, multiplication, and finally return."
+  },
+  {
     question: "Which data structure follows FIFO in Java?",
     options: ["Stack", "Queue", "Tree", "Graph"],
     correct: 1,
-    tags: ["DSA","DSA", "Queue", "Java"],
+    tags: ["DSA", "Queue", "Java"],
     explanation: "A Queue follows the First-In-First-Out (FIFO) principle, where the first element added is the first one to be removed.",
   },
   {
     question: "Which data structure follows LIFO in Java?",
     options: ["Queue", "Array", "Stack", "Linked List"],
     correct: 2,
-    tags: ["DSA","DSA", "Stack", "Java"],
+    tags: ["DSA", "Stack", "Java"],
     explanation: "A Stack follows the Last-In-First-Out (LIFO) principle, where the last element added is the first one to be retrieved.",
   },
   {

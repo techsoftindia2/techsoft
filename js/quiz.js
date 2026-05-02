@@ -83,6 +83,25 @@ function renderQuiz() {
     }
 
     questionEl.innerText = data.question;
+
+    // Display code snippet if available
+    let codeContainer = document.getElementById('quiz-code-container');
+    if (!codeContainer) {
+        codeContainer = document.createElement('div');
+        codeContainer.id = 'quiz-code-container';
+        questionEl.after(codeContainer);
+    }
+    if (data.code) {
+        codeContainer.innerHTML = `
+            <div class="code-snippet-container">
+                <pre><code>${escapeHtml(data.code)}</code></pre>
+            </div>
+        `;
+        codeContainer.style.display = 'block';
+    } else {
+        codeContainer.style.display = 'none';
+    }
+
     counterEl.innerText = `Question ${currentQuestionIndex + 1} of ${filteredQuizData.length}`;
     feedbackEl.innerHTML = '';
     optionsContainer.innerHTML = '';
@@ -145,12 +164,18 @@ function showResults() {
     filteredQuizData.forEach((item, index) => {
         const userAnswer = userAnswers[index];
         const isCorrect = userAnswer.isCorrect;
+        const codeSnippet = item.code ? `
+            <div class="code-snippet-container mb-2" style="box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 10px rgba(40, 120, 235, 0.1);">
+                <pre class="p-2 small"><code>${escapeHtml(item.code)}</code></pre>
+            </div>
+        ` : '';
         
         reviewHtml += `
             <div class="col-12 mb-3">
                 <div class="card border-${isCorrect ? 'success' : 'danger'} shadow-sm">
                     <div class="card-body">
                         <h6 class="font-weight-bold">Q${index + 1}: ${item.question}</h6>
+                        ${codeSnippet}
                         <div class="small mt-2">
                             <p class="mb-1"><strong>Your Answer:</strong> <span class="${isCorrect ? 'text-success' : 'text-danger'}">${item.options[userAnswer.selectedIndex]} <i class="fas ${isCorrect ? 'fa-check-circle' : 'fa-times-circle'} ml-1"></i></span></p>
                             ${!isCorrect ? `<p class="mb-0 text-success"><strong>Correct Answer:</strong> ${item.options[item.correct]}</p>` : ''}
@@ -184,3 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCategorySelection();
     document.getElementById('next-btn').addEventListener('click', nextQuestion);
 });
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
