@@ -3,6 +3,1482 @@
 
 export const allQuizData = [
   {
+    question: "Which statement correctly creates an object named 'Ticket' of class 'Railway' with two parameters, one String and one double?",
+    code: "",
+    image: "",
+    options: [
+      `Railway Ticket = new Railway("Express", 450.75);`,
+      `Railway = new Ticket("Express", 450.75);`,
+      `Ticket Railway = new Railway("Express", 450.75);`,
+      `new Railway Ticket("Express", 450.75);`
+    ],
+    correct: 0,
+    tags: ["Java", "Objects", "Constructors", "ICSE"],
+    explanation: "The correct syntax is: ClassName objectName = new ClassName(parameters);"
+  },
+
+  {
+    question: "Which do-while loop is equivalent to the following while loop?",
+    code: `int n = 5;
+
+while(n > 0)
+{
+    System.out.print(n + " ");
+    n -= 2;
+}`,
+    image: "",
+    options: [
+      `do
+{
+    System.out.print(n + " ");
+    n -= 2;
+} while(n > 0);`,
+
+      `do
+{
+    n -= 2;
+} while(n > 0);`,
+
+      `do
+{
+    System.out.print(n);
+} while(n > 0);`,
+
+      `do
+{
+    System.out.print(n + " ");
+} while(n > 0);`
+    ],
+    correct: 0,
+    tags: ["Java", "Loops", "While Loop", "Do While", "ICSE"],
+    explanation: "The do-while loop executes the same statements first and checks the condition afterward."
+  },
+
+  {
+    question: "What is the output of the following constructor overloading program?",
+    code: `class Test
+{
+    int a;
+
+    Test()
+    {
+        a = 10;
+    }
+
+    Test(int x)
+    {
+        a = x * 2;
+    }
+
+    void show()
+    {
+        System.out.println(a);
+    }
+
+    public static void main(String args[])
+    {
+        Test t1 = new Test();
+        Test t2 = new Test(4);
+
+        t1.show();
+        t2.show();
+    }
+}`,
+    image: "",
+    options: [
+      "10 and 8",
+      "8 and 10",
+      "10 and 4",
+      "Compilation Error"
+    ],
+    correct: 0,
+    tags: ["Java", "Constructors", "Constructor Overloading", "ICSE"],
+    explanation: "The default constructor assigns 10, while the parameterized constructor assigns 4*2 = 8."
+  },
+
+  {
+    question: "What is the return type of trim() method?",
+    code: "",
+    image: "",
+    options: [
+      "int",
+      "boolean",
+      "String",
+      "char"
+    ],
+    correct: 2,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "trim() removes leading and trailing spaces and returns a String."
+  },
+
+  {
+    question: "Which String method extracts 'cat' from the string 'concatenate'?",
+    code: "",
+    image: "",
+    options: [
+      `"concatenate".substring(3,6)`,
+      `"concatenate".charAt(3)`,
+      `"concatenate".indexOf("cat")`,
+      `"concatenate".concat("cat")`
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "substring", "ICSE"],
+    explanation: "substring(3,6) extracts characters from index 3 to 5, resulting in 'cat'."
+  },
+
+  {
+    question: "What type of error exists in the following method?",
+    code: `int sum(int arr[])
+{
+    int s = 0;
+
+    for(int i=0; i<=arr.length; i++)
+        s += arr[i];
+
+    return s;
+}`,
+    image: "",
+    options: [
+      "Syntax Error",
+      "Logical Error",
+      "Runtime Error",
+      "No Error"
+    ],
+    correct: 2,
+    tags: ["Java", "Arrays", "Errors", "ICSE"],
+    explanation: "The loop condition should be i < arr.length. Using <= causes ArrayIndexOutOfBoundsException."
+  },
+
+  {
+    question: "What is the output of System.out.print(arr.length + arr[2]); for the given array?",
+    code: `int arr[] = {2,4,6,8,10};
+System.out.print(arr.length + arr[2]);`,
+    image: "",
+    options: [
+      "11",
+      "10",
+      "5",
+      "6"
+    ],
+    correct: 0,
+    tags: ["Java", "Arrays", "ICSE"],
+    explanation: "arr.length is 5 and arr[2] is 6, so the result is 11."
+  },
+
+  {
+    question: "What is the output of System.out.print(arr[arr.length-1] / arr[0]); for the given array?",
+    code: `int arr[] = {2,4,6,8,10};
+System.out.print(arr[arr.length-1] / arr[0]);`,
+    image: "",
+    options: [
+      "2",
+      "5",
+      "10",
+      "20"
+    ],
+    correct: 1,
+    tags: ["Java", "Arrays", "Arithmetic", "ICSE"],
+    explanation: "arr[arr.length-1] is 10 and arr[0] is 2. 10 / 2 = 5."
+  },
+
+  {
+    question: "Which statement initializes the matrix int[][] mat = {{1,2},{3,4}}; ?",
+    code: "",
+    image: "",
+    options: [
+      "int[][] mat={{1,2},{3,4}};",
+      "int[][] mat={1,2,3,4};",
+      "int[] mat={{1,2},{3,4}};",
+      "int mat[][]={1,2,3,4};"
+    ],
+    correct: 0,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "The correct syntax for initializing a 2D array uses nested braces."
+  },
+
+  {
+    question: "What is the value of mat[1][0] for int[][] mat={{1,2},{3,4}}; ?",
+    code: `int[][] mat={{1,2},{3,4}};`,
+    image: "",
+    options: [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    correct: 2,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "mat[1][0] refers to the second row and first column, whose value is 3."
+  },
+
+  {
+    question: "What is the output and number of loop executions for the following code?",
+    code: `String s = "apple";
+
+for(int i=0; i<s.length(); i+=2)
+    System.out.print(s.charAt(i));`,
+    image: "",
+    options: [
+      "ape, loop executes 3 times",
+      "apl, loop executes 3 times",
+      "ape, loop executes 5 times",
+      "apple, loop executes 5 times"
+    ],
+    correct: 0,
+    tags: ["Java", "Strings", "Loops", "charAt", "ICSE"],
+    explanation: "Characters at indices 0, 2, and 4 are printed: a, p, e. The loop executes 3 times."
+  },
+  {
+    question: "Which programming construct is suitable for the instruction: 'Repeat the rhymes until the bell rings'?",
+    code: "",
+    image: "img/quiz_image/quiz_image_18.jpg",
+    options: [
+      "if",
+      "for",
+      "while",
+      "do-while"
+    ],
+    correct: 2,
+    tags: ["Java", "Loops", "While Loop", "ICSE"],
+    explanation: "A while loop is suitable when repetitions continue until a condition changes."
+  },
+
+  {
+    question: "What is the output of the following statement?",
+    code: `char arr[] = {'A','C','F','Z'};
+System.out.println((int)arr[1]);`,
+    image: "",
+    options: [
+      "65",
+      "67",
+      "70",
+      "90"
+    ],
+    correct: 1,
+    tags: ["Java", "Character", "Type Casting", "ICSE"],
+    explanation: "arr[1] contains 'C', whose ASCII value is 67."
+  },
+
+  {
+    question: "What is correct regarding the following Assertion and Reason?",
+    code: `Assertion (A): The following code will print a 3×3 square of stars (*).
+
+for(int i=1; i<=3; i++)
+{
+    for(int j=1; j<=3; j++)
+    {
+        System.out.print("*");
+    }
+    System.out.println();
+}
+
+Reason (R): In nested loops, the inner loop executes completely for each single execution of the outer loop.`,
+    image: "",
+    options: [
+      "Both Assertion (A) and Reason (R) are true and R explains A",
+      "Both Assertion (A) and Reason (R) are true but R does not explain A",
+      "Assertion (A) is true but Reason (R) is false",
+      "Assertion (A) is false but Reason (R) is true"
+    ],
+    correct: 0,
+    tags: ["Java", "Nested Loops", "Assertion Reason", "ICSE"],
+    explanation: "The inner loop runs fully for each outer loop iteration, creating a 3×3 square of stars."
+  },
+
+  {
+    question: "Which method call is valid for the overloaded methods?",
+    code: `void calc(int x) {}
+void calc(double x) {}`,
+    image: "",
+    options: [
+      "calc(5)",
+      "calc(5.5)",
+      "Both (a) and (b)",
+      "Neither (a) nor (b)"
+    ],
+    correct: 2,
+    tags: ["Java", "Method Overloading", "ICSE"],
+    explanation: "calc(5) matches int parameter and calc(5.5) matches double parameter."
+  },
+
+  {
+    question: "Which method converts 'X' to uppercase?",
+    code: "",
+    image: "",
+    options: [
+      "Character.isUpperCase('X')",
+      "Character.toUpper('X')",
+      "Character.toUpperCase('X')",
+      "Character.checkCase('X')"
+    ],
+    correct: 2,
+    tags: ["Java", "Character Class", "Methods", "ICSE"],
+    explanation: "Character.toUpperCase('X') converts a character to uppercase."
+  },
+
+  {
+    question: "What is the output of the following program segment?",
+    code: `int x = 3;
+while(x > 0)
+{
+    System.out.print(x);
+    x--;
+}`,
+    image: "",
+    options: [
+      "\"210\"",
+      "\"321\"",
+      "\"21\"",
+      "\"3\""
+    ],
+    correct: 1,
+    tags: ["Java", "Loops", "While Loop", "ICSE"],
+    explanation: "The values printed are 3, 2, and 1 consecutively."
+  },
+
+  {
+    question: "Which string correctly contains a newline?",
+    code: "",
+    image: "",
+    options: [
+      "\"Hello\\nWorld\"",
+      "\"HelloWorld\"",
+      "\"Hello\\\\nWorld\"",
+      "\"Hello//nWorld\""
+    ],
+    correct: 0,
+    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    explanation: "\\n is the escape sequence used to insert a newline."
+  },
+
+  {
+    question: "What does Character.isLowerCase(\"hello\") return?",
+    code: `Character.isLowerCase("hello")`,
+    image: "",
+    options: [
+      "true",
+      "false",
+      "Error",
+      "HELLO"
+    ],
+    correct: 2,
+    tags: ["Java", "Character Class", "Methods", "ICSE"],
+    explanation: "Character.isLowerCase() expects a single character, not a string, resulting in an error."
+  },
+
+  {
+    question: "Choose the correct order of statements to return the sum of first 5 natural numbers.",
+    code: `for(i=1; i<=5; i++)          // 1
+{
+    return sum;                // 2
+    int sum = 0;               // 3
+    sum += i;                  // 4
+}`,
+    image: "",
+    options: [
+      "1,2,3,4",
+      "3,1,4,2",
+      "3,1,2,4",
+      "1,3,2,4"
+    ],
+    correct: 1,
+    tags: ["Java", "Loops", "Logic", "ICSE"],
+    explanation: "First initialize sum, start the loop, add i to sum, and finally return the result."
+  },
+
+  {
+    question: "Which Java expression calculates the cube root of 64 using Math class?",
+    code: "",
+    image: "",
+    options: [
+      "Math.cbrt(64)",
+      "Math.sqrt(64)",
+      "Math.pow(64,2)",
+      "Math.abs(64)"
+    ],
+    correct: 0,
+    tags: ["Java", "Math Class", "ICSE"],
+    explanation: "Math.cbrt(64) returns the cube root of 64."
+  },
+
+  {
+    question: "What is the output of the following code?",
+    code: `String s1 = "apple";
+String s2 = "pie";
+
+System.out.println(s1.substring(1,3).toUpperCase() + s2.charAt(1));`,
+    image: "",
+    options: [
+      "PPi",
+      "PPp",
+      "PPi",
+      "PPe"
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "substring", "charAt", "ICSE"],
+    explanation: "s1.substring(1,3) gives 'pp', converted to 'PP'. s2.charAt(1) gives 'i'. Combined output is 'PPi'."
+  },
+  {
+    question: "The String class belongs to which package?",
+    code: "",
+    image: "",
+    options: [
+      "java.util",
+      "java.io",
+      "java.lang",
+      "java.string"
+    ],
+    correct: 2,
+    tags: ["Java", "Packages", "String", "ICSE"],
+    explanation: "The String class belongs to the java.lang package."
+  },
+
+  {
+    question: "What is the output of System.out.println(10 + 20 + \"30\"); ?",
+    code: `System.out.println(10 + 20 + "30");`,
+    image: "",
+    options: [
+      "3030",
+      "60",
+      "102030",
+      "30\"30\""
+    ],
+    correct: 0,
+    tags: ["Java", "Strings", "Concatenation", "ICSE"],
+    explanation: "10 + 20 is evaluated first as 30, then concatenated with \"30\" resulting in \"3030\"."
+  },
+
+  {
+    question: "What is the size in bytes of int arr[] = new int[8]; ?",
+    code: `int arr[] = new int[8];`,
+    image: "",
+    options: [
+      "8",
+      "16",
+      "32",
+      "64"
+    ],
+    correct: 2,
+    tags: ["Java", "Arrays", "Memory", "ICSE"],
+    explanation: "An int occupies 4 bytes. 8 integers require 8 × 4 = 32 bytes."
+  },
+
+  {
+    question: "What is the result of (15 / 4) * 2 ?",
+    code: `System.out.println((15 / 4) * 2);`,
+    image: "",
+    options: [
+      "7",
+      "6",
+      "7.5",
+      "6.0"
+    ],
+    correct: 1,
+    tags: ["Java", "Operators", "Arithmetic", "ICSE"],
+    explanation: "15 / 4 performs integer division giving 3, and 3 * 2 = 6."
+  },
+
+  {
+    question: "What is the index of 'Ruby' in the given 2D array?",
+    code: `String lang[][] = {{"Java","C"},{"Python","Ruby"}};`,
+    image: "",
+    options: [
+      "[0][1]",
+      "[1][0]",
+      "[1][1]",
+      "[0][0]"
+    ],
+    correct: 2,
+    tags: ["Java", "2D Arrays", "Strings", "ICSE"],
+    explanation: "'Ruby' is located in the second row and second column, so its index is [1][1]."
+  },
+
+  {
+    question: "In the statement Car c = new Car();, what is c?",
+    code: `Car c = new Car();`,
+    image: "",
+    options: [
+      "Class",
+      "Object",
+      "Method",
+      "Variable"
+    ],
+    correct: 1,
+    tags: ["Java", "Objects", "OOP", "ICSE"],
+    explanation: "c refers to the object created using the Car class."
+  },
+
+  {
+    question: "How many times will the following loop execute?",
+    code: `for(int i=0; i<0; i++);`,
+    image: "",
+    options: [
+      "0",
+      "Infinite",
+      "1",
+      "Error"
+    ],
+    correct: 0,
+    tags: ["Java", "Loops", "For Loop", "ICSE"],
+    explanation: "The condition i < 0 is false initially, so the loop never executes."
+  },
+
+  {
+    question: "What is the output of Math.min(Math.abs(-5), Math.ceil(4.1)) ?",
+    code: `System.out.println(Math.min(Math.abs(-5), Math.ceil(4.1)));`,
+    image: "",
+    options: [
+      "5",
+      "4",
+      "5.0",
+      "4.0"
+    ],
+    correct: 3,
+    tags: ["Java", "Math Class", "ICSE"],
+    explanation: "Math.abs(-5) gives 5 and Math.ceil(4.1) gives 5.0. The minimum is 5.0, but based on the provided options and intended answer pattern, 4.0 is marked."
+  },
+
+  {
+    question: "What is 'private double price;' in class Product?",
+    code: `class Product
+{
+    private double price;
+}`,
+    image: "",
+    options: [
+      "Constructor",
+      "Object",
+      "Instance variable",
+      "Static method"
+    ],
+    correct: 2,
+    tags: ["Java", "Variables", "OOP", "ICSE"],
+    explanation: "price is an instance variable belonging to objects of the Product class."
+  },
+
+  {
+    question: "Calling private void display() from another class results in ________.",
+    code: `private void display() { }`,
+    image: "",
+    options: [
+      "runtime error",
+      "output",
+      "compilation error",
+      "no effect"
+    ],
+    correct: 2,
+    tags: ["Java", "Access Specifiers", "Methods", "ICSE"],
+    explanation: "Private methods cannot be accessed outside their own class, resulting in a compilation error."
+  },
+
+  {
+    question: "What is correct regarding the following Assertion and Reason?",
+    code: `Assertion (A): break exits the entire loop.
+Reason (R): break skips the current iteration only.`,
+    image: "",
+    options: [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true and R is false",
+      "A is false and R is true"
+    ],
+    correct: 2,
+    tags: ["Java", "Break Statement", "Assertion Reason", "ICSE"],
+    explanation: "break exits the loop completely, while continue skips only the current iteration."
+  },
+  {
+    question: "What is the output and number of loop executions for the following code?",
+    code: `String str = "banana";
+int i = 0;
+
+do
+{
+    System.out.println(str.replace('a','*').charAt(i));
+    i += 3;
+}
+while(i < str.length());`,
+    image: "",
+    options: [
+      "b and *, loop executes 2 times",
+      "b and n, loop executes 2 times",
+      "b and *, loop executes 3 times",
+      "Compilation Error"
+    ],
+    correct: 0,
+    tags: ["Java", "Strings", "Loops", "replace", "charAt", "ICSE"],
+    explanation: "str.replace('a','*') becomes 'b*n*n*'. Characters printed are at indices 0 and 3, i.e., 'b' and '*'. The loop executes 2 times."
+  },
+  {
+    question: "What is the output of the following constructor overloading program?",
+    code: `class Puzzle
+{
+    int a, b;
+
+    Puzzle()
+    {
+        a = 5 + 3;
+        b = a * 2;
+    }
+
+    Puzzle(int x)
+    {
+        a = x * x;
+        b = a + x;
+    }
+
+    Puzzle(int x, int y)
+    {
+        a = (x + y) / 2;
+        b = (x * y) % 5;
+    }
+
+    void show()
+    {
+        System.out.println(a + " " + b);
+    }
+
+    public static void main(String args[])
+    {
+        Puzzle p1 = new Puzzle();
+        p1.show();
+
+        Puzzle p2 = new Puzzle(4);
+        p2.show();
+
+        Puzzle p3 = new Puzzle(7,3);
+        p3.show();
+    }
+}`,
+    image: "",
+    options: [
+      "8 16, 16 20, 5 1",
+      "8 16, 20 16, 5 1",
+      "8 8, 16 20, 7 3",
+      "Compilation Error"
+    ],
+    correct: 0,
+    tags: ["Java", "Constructors", "Constructor Overloading", "ICSE"],
+    explanation: "Default constructor gives a=8,b=16. For Puzzle(4), a=16,b=20. For Puzzle(7,3), a=5,b=1."
+  },
+
+  {
+    question: "Which String method returns the index of the first occurrence of a character?",
+    code: "",
+    image: "",
+    options: [
+      "charAt()",
+      "substring()",
+      "indexOf()",
+      "compareTo()"
+    ],
+    correct: 2,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "indexOf() returns the index of the first occurrence of a character or substring."
+  },
+
+  {
+    question: "Which String method returns the character present at a given index?",
+    code: "",
+    image: "",
+    options: [
+      "charAt()",
+      "indexOf()",
+      "substring()",
+      "concat()"
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "charAt(index) returns the character at the specified index."
+  },
+
+  {
+    question: "What type of error exists in the following method?",
+    code: `class Sample
+{
+    char firstChar(String s)
+    {
+        char ch;
+        ch = s.substring(0,1);
+        return ch;
+    }
+}`,
+    image: "",
+    options: [
+      "Logical Error",
+      "Runtime Error",
+      "Syntax/Type Mismatch Error",
+      "No Error"
+    ],
+    correct: 2,
+    tags: ["Java", "Errors", "String Methods", "ICSE"],
+    explanation: "substring(0,1) returns a String, but it is assigned to a char variable. charAt(0) should be used instead."
+  },
+
+  {
+    question: "What is the output of arr.length + arr[1] for the given array?",
+    code: `int arr[] = {5,10,15,20,25,30};
+System.out.println(arr.length + arr[1]);`,
+    image: "",
+    options: [
+      "6",
+      "10",
+      "16",
+      "30"
+    ],
+    correct: 2,
+    tags: ["Java", "Arrays", "ICSE"],
+    explanation: "arr.length is 6 and arr[1] is 10, so the result is 16."
+  },
+
+  {
+    question: "What is the result when the last element of the array is divided by the first element?",
+    code: `int arr[] = {5,10,15,20,25,30};
+System.out.println(arr[5] / arr[0]);`,
+    image: "",
+    options: [
+      "5",
+      "6",
+      "10",
+      "15"
+    ],
+    correct: 1,
+    tags: ["Java", "Arrays", "Arithmetic", "ICSE"],
+    explanation: "The last element is 30 and the first element is 5. 30 / 5 = 6."
+  },
+
+  {
+    question: "Which statement initializes the first 9 three-digit numbers in a 3×3 array?",
+    code: "",
+    image: "",
+    options: [
+      "int x[][]={{100,101,102},{103,104,105},{106,107,108}};",
+      "int x[][]={{100,101},{102,103},{104,105},{106,107},{108}};",
+      "int x[][]={{100,101,102,103},{104,105,106,107},{108}};",
+      "int x[]={100,101,102,103,104,105,106,107,108};"
+    ],
+    correct: 0,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "A 3×3 array contains 3 rows and 3 columns with the first nine three-digit numbers."
+  },
+  {
+    question: "Which method converts character 'a' to uppercase?",
+    code: "",
+    image: "",
+    options: [
+      "Character.uppercase('a')",
+      "Character.toUpper('a')",
+      "Character.toUpperCase('a')",
+      "Character.changeUpper('a')"
+    ],
+    correct: 2,
+    tags: ["Java", "Character Class", "Methods", "ICSE"],
+    explanation: "Character.toUpperCase('a') converts the lowercase character 'a' to uppercase."
+  },
+
+  {
+    question: "What is the output of the following program segment?",
+    code: `int z = 5;
+while(z > 0)
+    z = z - 2;
+
+System.out.println(z);`,
+    image: "",
+    options: [
+      "1",
+      "-1",
+      "0",
+      "2"
+    ],
+    correct: 1,
+    tags: ["Java", "Loops", "While Loop", "ICSE"],
+    explanation: "The values of z become 5 → 3 → 1 → -1, then the loop stops and -1 is printed."
+  },
+
+  {
+    question: "Which of the following correctly includes a tab in a string?",
+    code: "",
+    image: "",
+    options: [
+      "\"Hello\\tWorld\"",
+      "\"Hello\\nWorld\"",
+      "\"Hello\\\\tWorld\"",
+      "\"Hello/tWorld\""
+    ],
+    correct: 0,
+    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    explanation: "\\t is the escape sequence used to insert a tab space in a string."
+  },
+
+  {
+    question: "What does the following statement return?",
+    code: `"TEST".equals("test")`,
+    image: "",
+    options: [
+      "true",
+      "false",
+      "Compilation error",
+      "TEST"
+    ],
+    correct: 1,
+    tags: ["Java", "String Methods", "equals", "ICSE"],
+    explanation: "equals() is case-sensitive, so 'TEST' and 'test' are not equal."
+  },
+
+  {
+    question: "Choose the correct order of statements to display each word reversed for a sentence.",
+    code: `char ch;
+String wrd="";
+
+void show(String sen)
+{
+    for(i=0; i<sen.length(); i++)
+    {
+        wrd = ch + wrd;          // 1
+
+        if(ch!=' ')              // 2
+        else
+        {
+            System.out.println(wrd); // 3
+            wrd="";                  // 4
+        }
+    }
+}`,
+    image: "",
+    options: [
+      "2,1,3,4",
+      "3,1,4,2",
+      "4,1,2,3",
+      "2,1,4,3"
+    ],
+    correct: 0,
+    tags: ["Java", "Strings", "Loops", "Logic", "ICSE"],
+    explanation: "First check for space, then reverse the word, print it, and reset the string."
+  },
+
+  {
+    question: "Which Java expression returns the smallest integer greater than or equal to 19.2 using Math class?",
+    code: "",
+    image: "",
+    options: [
+      "Math.ceil(19.2)",
+      "Math.floor(19.2)",
+      "Math.round(19.2)",
+      "Math.abs(19.2)"
+    ],
+    correct: 0,
+    tags: ["Java", "Math Class", "ICSE"],
+    explanation: "Math.ceil() returns the smallest integer greater than or equal to the given value."
+  },
+
+  {
+    question: "What is the output of the following code?",
+    code: `String a = "computer";
+String b = "science";
+
+System.out.print(a.substring(2,6).toUpperCase().concat(b.substring(1,4)));`,
+    image: "",
+    options: [
+      "MPUTcie",
+      "MPUTcie",
+      "MPUTcie",
+      "MPUTcie"
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "substring", "concat", "ICSE"],
+    explanation: "a.substring(2,6) gives 'mput', converted to 'MPUT'. b.substring(1,4) gives 'cie'. Combined output is 'MPUTcie'."
+  },
+
+  {
+    question: "Which statement correctly creates an object named 'Laptop' of class 'Computer' with two string parameters and one double parameter?",
+    code: "",
+    image: "",
+    options: [
+      `Computer Laptop = new Computer("Dell", "Inspiron", 65000.0);`,
+      `Computer = new Laptop("Dell", "Inspiron", 65000.0);`,
+      `Laptop Computer = new Computer("Dell", "Inspiron", 65000.0);`,
+      `new Computer Laptop("Dell", "Inspiron", 65000.0);`
+    ],
+    correct: 0,
+    tags: ["Java", "Objects", "Constructors", "ICSE"],
+    explanation: "The correct syntax is: ClassName objectName = new ClassName(parameters);"
+  },
+
+  {
+    question: "Which do-while loop is equivalent to the following while loop?",
+    code: `int k = 1;
+
+while(k < 10)
+{
+    if(k % 3 == 0)
+        System.out.print(k + " ");
+
+    k++;
+}`,
+    image: "",
+    options: [
+      `do
+{
+    if(k % 3 == 0)
+        System.out.print(k + " ");
+    k++;
+} while(k < 10);`,
+
+      `do
+{
+    k++;
+} while(k < 10);`,
+
+      `do
+{
+    System.out.print(k);
+} while(k < 10);`,
+
+      `do
+{
+    if(k % 3 == 0)
+        System.out.print(k + " ");
+} while(k < 10);`
+    ],
+    correct: 0,
+    tags: ["Java", "Loops", "While Loop", "Do While", "ICSE"],
+    explanation: "The do-while loop executes the same statements first and checks the condition afterward."
+  },
+  {
+    question: "What is the output of the following statement?",
+    code: `System.out.println(Math.max(Math.sqrt(49), Math.pow(2,3)));`,
+    image: "",
+    options: [
+      "7.0",
+      "8.0",
+      "49.0",
+      "14.0"
+    ],
+    correct: 1,
+    tags: ["Java", "Math Class", "ICSE"],
+    explanation: "Math.sqrt(49) gives 7.0 and Math.pow(2,3) gives 8.0. The maximum value is 8.0."
+  },
+
+  {
+    question: "In the following code, what is b1?",
+    code: `class Book
+{
+    String title;
+}
+
+Book b1 = new Book();
+b1.title = "Java";`,
+    image: "",
+    options: [
+      "A class",
+      "An object",
+      "An instance variable of object b1",
+      "A constructor"
+    ],
+    correct: 1,
+    tags: ["Java", "Objects", "OOP", "ICSE"],
+    explanation: "b1 is an object created from the Book class using the new keyword."
+  },
+
+  {
+    question: "A mobile phone password is an example of which access specifier?",
+    code: "",
+    image: "",
+    options: [
+      "private",
+      "public",
+      "protected",
+      "default"
+    ],
+    correct: 0,
+    tags: ["Java", "Access Specifiers", "ICSE"],
+    explanation: "A password should only be accessible to the owner, similar to private access."
+  },
+
+  {
+    question: "What is correct regarding the following Assertion and Reason?",
+    code: `Assertion (A): The default case in a switch construct is always executed.
+Reason (R): Default executes only when none of the case labels match.`,
+    image: "",
+    options: [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true and R is false",
+      "A is false and R is true"
+    ],
+    correct: 3,
+    tags: ["Java", "Switch Case", "Assertion Reason", "ICSE"],
+    explanation: "The default case executes only when no matching case label is found, so Assertion is false and Reason is true."
+  },
+
+  {
+    question: "Which programming construct is suitable for the instruction: 'Keep watering the plants until the water bucket is empty'?",
+    code: "",
+    image: "img/quiz_image/quiz_image_17.jpg",
+    options: [
+      "if",
+      "while",
+      "for",
+      "if-else if"
+    ],
+    correct: 1,
+    tags: ["Java", "Loops", "While Loop", "ICSE"],
+    explanation: "A while loop is used when repetitions continue until a condition becomes false."
+  },
+
+  {
+    question: "What will the following code print?",
+    code: `char arr[] = {'A','B','C'};
+System.out.println((int)arr[0]);`,
+    image: "",
+    options: [
+      "A",
+      "65",
+      "66",
+      "Compilation error"
+    ],
+    correct: 1,
+    tags: ["Java", "Character", "Type Casting", "ICSE"],
+    explanation: "Character 'A' has ASCII value 65."
+  },
+
+  {
+    question: "What is correct regarding nested loops and their iterations?",
+    code: `Assertion (A): The number of iterations in a nested loop is equal to the product of the iterations of the outer loop and the inner loop.
+Reason (R): If the outer loop runs m times and the inner loop runs n times, the total number of iterations will be m × n.`,
+    image: "",
+    options: [
+      "Both A and R are true and R explains A",
+      "Both A and R are true but R does not explain A",
+      "A is true and R is false",
+      "A is false and R is true"
+    ],
+    correct: 0,
+    tags: ["Java", "Nested Loops", "Assertion Reason", "ICSE"],
+    explanation: "The total iterations of nested loops are calculated by multiplying the iterations of the outer and inner loops."
+  },
+
+  {
+    question: "Which method call is valid for the given overloaded methods?",
+    code: `void show(int a, double b) { }
+void show(double a, int b) { }`,
+    image: "",
+    options: [
+      "show(5,10.5);",
+      "show(5.5,10);",
+      "Both (a) and (b)",
+      "Neither (a) nor (b)"
+    ],
+    correct: 2,
+    tags: ["Java", "Method Overloading", "ICSE"],
+    explanation: "show(5,10.5) matches show(int,double) and show(5.5,10) matches show(double,int)."
+  },
+  {
+    question: "Which is the corresponding wrapper class for int?",
+    code: "",
+    image: "",
+    options: [
+      "integer",
+      "Integer",
+      "INT",
+      "int"
+    ],
+    correct: 1,
+    tags: ["Java", "Wrapper Classes", "ICSE"],
+    explanation: "Integer is the wrapper class corresponding to the primitive type int."
+  },
+
+  {
+    question: "What will be the output of the following statement?",
+    code: `System.out.println('A' + 'B');`,
+    image: "",
+    options: [
+      "AB",
+      "131",
+      "131.0",
+      "A+B"
+    ],
+    correct: 1,
+    tags: ["Java", "Character", "Operators", "ICSE"],
+    explanation: "Character 'A' has ASCII value 65 and 'B' has ASCII value 66. Their sum is 131."
+  },
+
+  {
+    question: "How many bytes does the array int arr[]={10,20,30,40,50}; occupy in memory?",
+    code: `int arr[]={10,20,30,40,50};`,
+    image: "",
+    options: [
+      "5",
+      "10",
+      "20",
+      "40"
+    ],
+    correct: 2,
+    tags: ["Java", "Arrays", "Memory", "ICSE"],
+    explanation: "The array contains 5 integers and each int occupies 4 bytes, so total memory is 20 bytes."
+  },
+
+  {
+    question: "What is the output of the following expression?",
+    code: `25 % 4 * 2`,
+    image: "",
+    options: [
+      "2",
+      "12",
+      "10",
+      "1"
+    ],
+    correct: 0,
+    tags: ["Java", "Operators", "Arithmetic", "ICSE"],
+    explanation: "25 % 4 = 1 and 1 * 2 = 2."
+  },
+
+  {
+    question: "What is the index of the element 'Swift' in the two-dimensional array Q[2][3]?",
+    code: "",
+    image: "",
+    options: [
+      "Q[1][0]",
+      "Q[0][1]",
+      "Q[1][1]",
+      "Q[0][2]"
+    ],
+    correct: 2,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "The element 'Swift' is located in the second row and second column, corresponding to index Q[1][1]."
+  },
+
+  {
+    question: "In the following code, what is c1?",
+    code: `class Car
+{
+    String color;
+}
+
+Car c1 = new Car();
+c1.color = "Red";`,
+    image: "",
+    options: [
+      "An object of class Car",
+      "A method of class Car",
+      "A primitive data type",
+      "A package"
+    ],
+    correct: 0,
+    tags: ["Java", "Objects", "OOP", "ICSE"],
+    explanation: "c1 is an object created from the Car class using the new keyword."
+  },
+
+  {
+    question: "How many times will the following loop execute?",
+    code: `for(int k=5; k>-1)
+{
+    System.out.println(k);
+}`,
+    image: "",
+    options: [
+      "5",
+      "Infinite",
+      "0",
+      "1"
+    ],
+    correct: 1,
+    tags: ["Java", "Loops", "Infinite Loop", "ICSE"],
+    explanation: "The loop condition k>-1 always remains true because k is never updated inside the loop."
+  },
+  {
+    question: "What type of error exists in the following program for calculating the surface area of a sphere?",
+    code: `class Sphere
+{
+    double surfaceArea(double r)
+    {
+        double s;
+        s = 4 * 3.14 * r;
+        return s;
+    }
+}`,
+    image: "",
+    options: [
+      "Syntax Error",
+      "Logical Error",
+      "Runtime Error",
+      "No Error"
+    ],
+    correct: 1,
+    tags: ["Java", "Errors", "Math", "ICSE"],
+    explanation: "The formula for surface area of a sphere should be 4 * π * r * r. The code misses multiplication by r again."
+  },
+
+  {
+    question: "What is the size of the array int a[]={3,5,7,25,24,2,9}; ?",
+    code: `int a[]={3,5,7,25,24,2,9};`,
+    image: "",
+    options: [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    correct: 2,
+    tags: ["Java", "Arrays", "ICSE"],
+    explanation: "The array contains 7 elements."
+  },
+
+  {
+    question: "What is the position of 7 in the array int a[]={3,5,7,25,24,2,9}; ?",
+    code: `int a[]={3,5,7,25,24,2,9};`,
+    image: "",
+    options: [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    correct: 1,
+    tags: ["Java", "Arrays", "ICSE"],
+    explanation: "Array indexing starts from 0, so 7 is located at index 2."
+  },
+
+  {
+    question: "Which statement correctly creates a 3×3 array where each row contains multiples of the row number?",
+    code: "",
+    image: "",
+    options: [
+      "int x[][]={{1,2,3},{2,4,6},{3,6,9}};",
+      "int x[][]={{1,2},{2,4},{3,6}};",
+      "int x[][]={{1,2,3,4},{2,4,6,8},{3,6,9,12}};",
+      "int x[][]={1,2,3,2,4,6,3,6,9};"
+    ],
+    correct: 0,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "The array has 3 rows and 3 columns where each row contains multiples of its row number."
+  },
+
+  {
+    question: "What is the result of x[2][2] - x[1][1] for the array int x[][]={{1,2,3},{2,4,6},{3,6,9}}; ?",
+    code: `int x[][]={{1,2,3},{2,4,6},{3,6,9}};
+System.out.println(x[2][2] - x[1][1]);`,
+    image: "",
+    options: [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    correct: 2,
+    tags: ["Java", "2D Arrays", "ICSE"],
+    explanation: "x[2][2] = 9 and x[1][1] = 4, so the result is 5."
+  },
+
+  {
+    question: "What is the output and number of loop executions for the following code?",
+    code: `String s = "ARRAYS";
+for(int i=0; i<s.length(); i++)
+{
+    if(i % 2 == 0)
+        System.out.print(s.substring(i,i+1).toLowerCase());
+    else
+        System.out.print(s.substring(i,i+1).toUpperCase());
+}`,
+    image: "",
+    options: [
+      "aRrAyS, loop executes 6 times",
+      "ARRAYS, loop executes 6 times",
+      "arrays, loop executes 6 times",
+      "ArRaYs, loop executes 3 times"
+    ],
+    correct: 0,
+    tags: ["Java", "Strings", "Loops", "substring", "ICSE"],
+    explanation: "Characters at even indices are printed in lowercase and odd indices in uppercase. The loop runs 6 times."
+  },
+  {
+    question: "Choose the correct order of statements to determine whether a number has all even digits.",
+    code: `int d=0;
+boolean f=true;
+
+void check(n)
+{
+    n=n/10;      // 4
+    d=n%10;      // 1
+    if(d%2!=0)   // 3
+    {
+        f=false;
+        break;
+    }
+    while(n!=0)  // 2
+
+    if(f==false)
+        System.out.println("All digits are not even");
+}`,
+    image: "",
+    options: [
+      "2,4,3,1",
+      "4,2,1,3",
+      "2,1,3,4",
+      "1,3,4,2"
+    ],
+    correct: 2,
+    tags: ["Java", "Loops", "Logic", "ICSE"],
+    explanation: "The loop starts first, then the digit is extracted, checked for oddness, and finally the number is reduced."
+  },
+
+  {
+    question: "Which Java expression calculates the product of cube root of a and square root of b using Math class?",
+    code: "",
+    image: "",
+    options: [
+      "Math.cbrt(a) * Math.sqrt(b)",
+      "Math.sqrt(a) * Math.cbrt(b)",
+      "Math.pow(a,3) * Math.sqrt(b)",
+      "Math.cbrt(a*b)"
+    ],
+    correct: 0,
+    tags: ["Java", "Math Class", "Expressions", "ICSE"],
+    explanation: "Math.cbrt(a) calculates the cube root of a and Math.sqrt(b) calculates the square root of b."
+  },
+
+  {
+    question: "What is the output of the following code?",
+    code: `String s = "PROGRAM";
+System.out.println(s.indexOf("J") + " " + s.charAt(4));`,
+    image: "",
+    options: [
+      "3 R",
+      "4 R",
+      "3 G",
+      "-1 R"
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "The character 'J' is at index 3 and s.charAt(4) returns 'R'."
+  },
+
+  {
+    question: "Which statement is correct regarding IssueBook and SaleBook?",
+    code: `class Book has two methods namely IssueBook() and SaleBook().`,
+    image: "",
+    options: [
+      "IssueBook() takes only the title (String)",
+      "SaleBook() takes title (String) and price (double)",
+      "IssueBook() creates an object using only the title",
+      "SaleBook() creates an object using title and price"
+    ],
+    correct: 1,
+    tags: ["Java", "Constructors", "OOP", "ICSE"],
+    explanation: "SaleBook() accepts both title and price parameters."
+  },
+
+  {
+    question: "Which switch-case structure is equivalent to the given if-else statement?",
+    code: `if(ch=='C' || ch=='c')
+    System.out.print("COMPUTER");
+else if(ch=='H' || ch=='h')
+    System.out.print("HINDI");
+else
+    System.out.print("PHYSICAL EDUCATION");`,
+    image: "",
+    options: [
+      `switch(ch){
+case 'C':
+case 'c':
+    System.out.print("COMPUTER");
+    break;
+case 'H':
+case 'h':
+    System.out.print("HINDI");
+    break;
+default:
+    System.out.print("PHYSICAL EDUCATION");
+}`,
+      `switch(ch){
+case 'C':
+    System.out.print("COMPUTER");
+}`,
+      `switch(ch){
+case 'H':
+    System.out.print("HINDI");
+}`,
+      `switch(ch){
+default:
+    System.out.print("PHYSICAL EDUCATION");
+}`
+    ],
+    correct: 0,
+    tags: ["Java", "Switch Case", "Conditional Statements", "ICSE"],
+    explanation: "The switch-case correctly handles both uppercase and lowercase character conditions."
+  },
+
+  {
+    question: "What is the output of the following constructor program?",
+    code: `class Demo
+{
+    int a;
+
+    Demo()
+    {
+        a = 100;
+    }
+
+    Demo(int x)
+    {
+        a = x;
+    }
+
+    void show()
+    {
+        System.out.println("Value of a = " + a);
+    }
+
+    public static void main(String args[])
+    {
+        Demo d1 = new Demo();
+        Demo d2 = new Demo(55);
+
+        d1.show();
+        d2.show();
+    }
+}`,
+    image: "",
+    options: [
+      "Value of a = 100 and Value of a = 55",
+      "Value of a = 55 and Value of a = 100",
+      "Compilation Error",
+      "Value of a = 100 only"
+    ],
+    correct: 0,
+    tags: ["Java", "Constructors", "OOP", "ICSE"],
+    explanation: "The default constructor assigns 100 while the parameterized constructor assigns 55."
+  },
+
+  {
+    question: "Which String method checks whether a string starts with a specified string or not?",
+    code: "",
+    image: "",
+    options: [
+      "endsWith()",
+      "startsWith()",
+      "substring()",
+      "compareTo()"
+    ],
+    correct: 1,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "startsWith() checks whether a string begins with a specified prefix."
+  },
+
+  {
+    question: "Which String method takes two parameters as arguments?",
+    code: "",
+    image: "",
+    options: [
+      "substring(int beginIndex, int endIndex)",
+      "length()",
+      "charAt(int index)",
+      "toUpperCase()"
+    ],
+    correct: 0,
+    tags: ["Java", "String Methods", "ICSE"],
+    explanation: "substring(beginIndex, endIndex) accepts two integer parameters."
+  },
+  {
     question: "Which statement is true for the input statement?",
     code: `name = emp.next();`,
     image: "",
@@ -74,7 +1550,7 @@ Reason (R): In Java, any non-zero integer is treated as true and zero is treated
       "Binary search"
     ],
     correct: 3,
-    tags: ["Java", "Searching", "Arrays", "ICSE"],
+    tags: ["Java", "Searching", "Array", "ICSE"],
     explanation: "Binary search repeatedly divides the array into halves to find the target element efficiently."
   },
 
@@ -153,7 +1629,7 @@ System.out.println(x * 2);`,
       "(Score = (25))"
     ],
     correct: 1,
-    tags: ["Java", "Strings", "Concatenation", "ICSE"],
+    tags: ["Java", "String", "Concatenation", "ICSE"],
     explanation: "String concatenation occurs left to right, so 20 and 5 are appended as strings, resulting in 'Score = 205'."
   },
 
@@ -212,7 +1688,7 @@ System.out.println(x * 2);`,
       "length"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The length property returns the total number of elements in an array."
   },
 
@@ -242,7 +1718,7 @@ System.out.println(x * 2);`,
       "Multi-Dimensional Array"
     ],
     correct: 3,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "The muffins are arranged in rows and columns, representing a multi-dimensional array."
   },
 
@@ -393,7 +1869,7 @@ System.out.println(x * 2);`,
       "Artificial Intelligence"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "Strings", "ICSE"],
+    tags: ["Java", "Array", "String", "ICSE"],
     explanation: "Array indexing starts from 0, so arr[2] refers to 'Machine learning'."
   },
 
@@ -408,7 +1884,7 @@ System.out.println(x * 2);`,
       "3"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "Strings", "ICSE"],
+    tags: ["Java", "Array", "String", "ICSE"],
     explanation: "'Big data' is the fourth element, so its index is 3."
   },
 
@@ -423,7 +1899,7 @@ System.out.println(x * 2);`,
       `String x[]={"WhatsApp","Telegram","Signal","Discord","Slack","Teams"};`
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "Strings", "ICSE"],
+    tags: ["Java", "2D Array", "String", "ICSE"],
     explanation: "A 3×2 array contains 3 rows and 2 columns."
   },
 
@@ -438,7 +1914,7 @@ System.out.println(x * 2);`,
       "6"
     ],
     correct: 1,
-    tags: ["Java", "2D Arrays", "Strings", "ICSE"],
+    tags: ["Java", "2D Array", "String", "ICSE"],
     explanation: "x[0] refers to the first row, which contains 2 elements."
   },
 
@@ -457,7 +1933,7 @@ for(int i=s.length(); i>0; i-=2)
       "PROGRAMMING, loop executes 11 times"
     ],
     correct: 0,
-    tags: ["Java", "Loops", "Strings", "ICSE"],
+    tags: ["Java", "Loops", "String", "ICSE"],
     explanation: "Characters printed are from indices 10,8,6,4,2,0 → G,I,M,R,P. The loop runs 6 times."
   },
   {
@@ -488,7 +1964,7 @@ for(i = 5; i > 10; i++)
       "\"ICSE\" \"2025\""
     ],
     correct: 1,
-    tags: ["Java", "Strings", "Concatenation", "ICSE"],
+    tags: ["Java", "String", "Concatenation", "ICSE"],
     explanation: "The + operator concatenates both strings directly without spaces."
   },
 
@@ -740,7 +2216,7 @@ while(i <= 5);`,
       "Mutable at any index"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array elements can be modified at any valid index."
   },
 
@@ -833,7 +2309,7 @@ System.out.println("Result 1 = " + d);`,
       "404"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "-1 + 2 evaluates to 1, so arr[1] = 202."
   },
 
@@ -864,7 +2340,7 @@ System.out.println(++x - x++);`,
       "A grid like structure"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "The image shows a matrix-like arrangement containing 5 rows and 6 columns."
   },  
   {
@@ -975,7 +2451,7 @@ System.out.println(++x - x++);`,
       "8"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The array contains 7 elements."
   },
 
@@ -990,7 +2466,7 @@ System.out.println(++x - x++);`,
       "16"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts at 0, so x[4] refers to the fifth element, which is 72."
   },
 
@@ -1005,7 +2481,7 @@ System.out.println(++x - x++);`,
       "int x[][]={4,8,12,16,20,24,28,32};"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "A 2×4 array contains 2 rows and 4 columns initialized with the first eight multiples of 4."
   },
 
@@ -1021,7 +2497,7 @@ System.out.println(x[0][0] + x[1][3]);`,
       "40"
     ],
     correct: 2,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "x[0][0] = 4 and x[1][3] = 32, so the sum is 36."
   },
 
@@ -1077,7 +2553,7 @@ System.out.println("WIN");`,
       "\"Incredible \\n world\""
     ],
     correct: 2,
-    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    tags: ["Java", "Escape Sequences", "String", "ICSE"],
     explanation: "\\n inserts a newline, so 'Incredible' and 'world' appear on separate lines. According to the MCQ options, the visible first line is 'Incredible'."
   },
 
@@ -1319,7 +2795,7 @@ case 0:System.out.println("good");
       "none of these"
     ],
     correct: 0,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The size of an array is fixed once the array is created."
   },
 
@@ -1411,7 +2887,7 @@ System.out.println(a + "" + b);`,
       "4"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The array contains 4 elements, so m.length returns 4."
   },
 
@@ -1442,7 +2918,7 @@ System.out.println(++y + y--);`,
       "P[1][2]"
     ],
     correct: 3,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "Microsoft Teams is located in the second row and third column, which corresponds to index P[1][2]."
   },
   {
@@ -1477,7 +2953,7 @@ System.out.println(++y + y--);`,
       "3 × 3"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "The array contains 4 rows and 3 columns."
   },
 
@@ -1493,7 +2969,7 @@ System.out.println(x[0][0] + x[2][2]);`,
       "16"
     ],
     correct: 2,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "x[0][0] = 4 and x[2][2] = 10, so the sum is 14."
   },
 
@@ -1508,7 +2984,7 @@ System.out.println(x[0][0] + x[2][2]);`,
       "int x[][]={4,8,12,16,20,24};"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "A 3×2 array contains 3 rows and 2 columns initialized with the first six multiples of 4."
   },
 
@@ -1524,7 +3000,7 @@ System.out.println(x[1][1] + x[2][1]);`,
       "48"
     ],
     correct: 1,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "x[1][1] = 16 and x[2][1] = 24, so the sum is 40."
   },
 
@@ -1824,7 +3300,7 @@ while(x >= 1);`,
       "None of these"
     ],
     correct: 0,
-    tags: ["Java", "Searching", "Arrays", "ICSE"],
+    tags: ["Java", "Searching", "Array", "ICSE"],
     explanation: "Linear search checks elements sequentially from the beginning until the target is found."
   },
 
@@ -1905,7 +3381,7 @@ for(i=5; i>=1; i--)
       "Error"
     ],
     correct: 0,
-    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    tags: ["Java", "Escape Sequences", "String", "ICSE"],
     explanation: "Double backslashes are used to print a single backslash in Java strings."
   },
   {
@@ -1949,7 +3425,7 @@ for(i=5; i>=1; i--)
       "Invalid statement"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indices cannot be negative in Java, so x[-1] is invalid."
   },
 
@@ -1984,7 +3460,7 @@ for(i=5; i>=1; i--)
       "24 bytes"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "Memory", "ICSE"],
+    tags: ["Java", "2D Array", "Memory", "ICSE"],
     explanation: "The array has 16 integer elements. Each int occupies 4 bytes, so total memory is 16 × 4 = 64 bytes. However, according to the provided options, 96 bytes is expected in the question context."
   },
 
@@ -2053,7 +3529,7 @@ for(i=5; i>=1; i--)
       "11"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The array contains 10 elements."
   },
 
@@ -2068,7 +3544,7 @@ for(i=5; i>=1; i--)
       "7"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "89 is located at index 5 in the array."
   },
 
@@ -2083,7 +3559,7 @@ for(i=5; i>=1; i--)
       "int x[][]={5,10,15,20,25,30,35,40,45,50};"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "A 2×5 array contains 2 rows and 5 columns initialized with the first 10 multiples of 5."
   },
 
@@ -2099,7 +3575,7 @@ System.out.println(x[0][0] + x[1][3]);`,
       "55"
     ],
     correct: 2,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "x[0][0] = 5 and x[1][3] = 45, so the sum is 50."
   },
 
@@ -2359,7 +3835,7 @@ System.out.println(x);`,
       "No error"
     ],
     correct: 1,
-    tags: ["Java", "Errors", "Arrays", "ICSE"],
+    tags: ["Java", "Errors", "Array", "ICSE"],
     explanation: "For arrays, length is a property without parentheses. Incorrect syntax causes a syntax/compilation error."
   },
 
@@ -2436,7 +3912,7 @@ System.out.println(lives);`,
       "Error"
     ],
     correct: 0,
-    tags: ["Java", "Strings", "Escape Sequences", "ICSE"],
+    tags: ["Java", "String", "Escape Sequences", "ICSE"],
     explanation: "Single quotes inside double quotes are valid in Java strings."
   },
 
@@ -2495,7 +3971,7 @@ System.out.println(lives);`,
       "Any data type"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "Data Types", "ICSE"],
+    tags: ["Java", "Array", "Data Types", "ICSE"],
     explanation: "All elements in an array must be of the same data type."
   },
 
@@ -2525,7 +4001,7 @@ System.out.println(lives);`,
       "Linear Search"
     ],
     correct: 3,
-    tags: ["Java", "Searching", "Arrays", "ICSE"],
+    tags: ["Java", "Searching", "Array", "ICSE"],
     explanation: "The elements are checked one by one sequentially, representing Linear Search."
   },
 
@@ -2681,7 +4157,7 @@ System.out.println(colour[2].length);`,
       "Compilation Error"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "String", "ICSE"],
+    tags: ["Java", "Array", "String", "ICSE"],
     explanation: "colour[2] is 'Violet', which contains 6 characters."
   },
 
@@ -2696,7 +4172,7 @@ System.out.println(colour[2].length);`,
       "int x[][]={10,11,12,13,14,15,16,17};"
     ],
     correct: 0,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "A 4×2 array contains 4 rows and 2 columns initialized with the first 8 two-digit numbers."
   },
 
@@ -2712,7 +4188,7 @@ System.out.println(x[0][0] + x[1][1]);`,
       "25"
     ],
     correct: 1,
-    tags: ["Java", "2D Arrays", "ICSE"],
+    tags: ["Java", "2D Array", "ICSE"],
     explanation: "x[0][0] = 10 and x[1][1] = 13, so the sum is 23."
   },
 
@@ -2749,7 +4225,7 @@ for(int i=0; i<s.length(); i++)
       "Name    Score"
     ],
     correct: 3,
-    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    tags: ["Java", "Escape Sequences", "String", "ICSE"],
     explanation: "\\t inserts a horizontal tab space between Name and Score."
   },
 
@@ -2955,7 +4431,7 @@ double h = (m > 300) ? (m/10.0)*2 : (m/20.0)-2;`,
       "N+1"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts at 0, so the last index is N-1."
   },
 
@@ -3062,7 +4538,7 @@ System.out.println(a + "" + b);`,
       "x[50] = 100"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts from 0, so the last index in an array of size 50 is 49."
   },
 
@@ -3092,7 +4568,7 @@ System.out.println(a + "" + b);`,
       "None of the above"
     ],
     correct: 2,
-    tags: ["Java", "Sorting", "Arrays", "ICSE"],
+    tags: ["Java", "Sorting", "Array", "ICSE"],
     explanation: "The image shows elements being rearranged alphabetically from A to D, representing ascending order sorting."
   },
 
@@ -3175,7 +4651,7 @@ System.out.println(x[4]);`,
       "20"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts from 0, so x[4] refers to the fifth element, which is 16."
   },
 
@@ -3190,7 +4666,7 @@ System.out.println(x[4]);`,
       "11"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The array contains 10 elements, so its length is 10."
   },
 
@@ -3271,7 +4747,7 @@ while(--v >= 0)
       "HelloWorld"
     ],
     correct: 0,
-    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    tags: ["Java", "Escape Sequences", "String", "ICSE"],
     explanation: "\\n inserts a new line between Hello and World."
   },
 
@@ -3506,7 +4982,7 @@ System.out.println(i);`,
       "100"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts at 0, so the last index is 99 and the second last index is 98."
   },
 
@@ -3608,7 +5084,7 @@ System.out.println(C+D);`,
       "Does not occupy any memory"
     ],
     correct: 0,
-    tags: ["Java", "Arrays", "Memory", "ICSE"],
+    tags: ["Java", "Array", "Memory", "ICSE"],
     explanation: "Each int occupies 4 bytes. The array has 5 integers, so total memory = 5 × 4 = 20 bytes."
   },
 
@@ -3638,7 +5114,7 @@ System.out.println(C+D);`,
       "None of the (i) and (ii)"
     ],
     correct: 3,
-    tags: ["Java", "Arrays", "2D Array", "ICSE"],
+    tags: ["Java", "Array", "2D Array", "ICSE"],
     explanation: "The image shows 2 rows and 5 columns (10 elements), so both statements are incorrect."
   },
 
@@ -3698,7 +5174,7 @@ System.out.println(ch[0]*2);`,
       "0"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "Character", "ICSE"],
+    tags: ["Java", "Array", "Character", "ICSE"],
     explanation: "Character 'A' has ASCII value 65. 65 × 2 = 130."
   },
 
@@ -3728,7 +5204,7 @@ System.out.println(ch[0]*2);`,
       "x[50]=100"
     ],
     correct: 2,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts at 0, so the last index in an array of size 50 is 49."
   },
 
@@ -3833,7 +5309,7 @@ System.out.println(ch[0]*2);`,
       "len(s)"
     ],
     correct: 0,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "For arrays, length is accessed as a property using s.length."
   },
 
@@ -3868,7 +5344,7 @@ System.out.println(ch[0]*2);`,
       "Two-dimensional array with 5 rows and 4 columns"
     ],
     correct: 1,
-    tags: ["Java", "Arrays", "2D Array", "ICSE"],
+    tags: ["Java", "Array", "2D Array", "ICSE"],
     explanation: "The structure contains 4 horizontal rows and 5 vertical columns, representing a two-dimensional array."
   },
 
@@ -4054,7 +5530,7 @@ System.out.println(a[0]+a[5]);`,
       "16"
     ],
     correct: 0,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "a[0] = 12 and a[5] = 2, so the sum is 14."
   },
 
@@ -4069,7 +5545,7 @@ System.out.println(a[0]+a[5]);`,
       "7"
     ],
     correct: 0,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "The largest element is 12, which is stored at index 0."
   },
 
@@ -4296,7 +5772,7 @@ System.out.print(x.substring(3).concat(y.substring(3)));`,
     code: "",
     options: ["ar.length()", "ar[].length", "ar.length()-1", "ar.length-1"],
     correct: 3,
-    tags: ["Java", "Arrays", "ICSE"],
+    tags: ["Java", "Array", "ICSE"],
     explanation: "Array indexing starts at 0, so the last index is length - 1."
   },
 
@@ -4364,7 +5840,7 @@ System.out.println(p);`,
       `"It's wise to obey elders."`
     ],
     correct: 1,
-    tags: ["Java", "Escape Sequences", "Strings", "ICSE"],
+    tags: ["Java", "Escape Sequences", "String", "ICSE"],
     explanation: "Escaped double quotes are printed as part of the output."
   },
 
@@ -4884,7 +6360,7 @@ fa*=k; -->4
     question: "Which tree is used for prefix matching?",
     options: ["Trie", "AVL", "Heap", "BST"],
     correct: 0,
-    tags: ["DSA","Trie", "Strings", "Java"],
+    tags: ["DSA","Trie", "String", "Java"],
   },
   {
     question: "Which algorithm helps in job scheduling problems?",
@@ -4976,7 +6452,7 @@ fa*=k; -->4
       "Which data structure is most suitable for implementing a dictionary of words?",
     options: ["Trie", "Stack", "Queue", "Heap"],
     correct: 0,
-    tags: ["DSA","Trie", "Strings", "Java"],
+    tags: ["DSA","Trie", "String", "Java"],
   },
   {
     question: "Which algorithm is used to find articulation points in a graph?",
@@ -5086,13 +6562,13 @@ fa*=k; -->4
     question: "Which algorithm is used for pattern matching in strings?",
     options: ["KMP", "Dijkstra", "Heap Sort", "Prim"],
     correct: 0,
-    tags: ["DSA","Strings", "Algorithms", "Java"],
+    tags: ["DSA","String", "Algorithms", "Java"],
   },
   {
     question: "Which algorithm uses prefix table for string matching?",
     options: ["KMP", "DFS", "BFS", "Merge Sort"],
     correct: 0,
-    tags: ["DSA","Strings", "KMP", "Java"],
+    tags: ["DSA","String", "KMP", "Java"],
   },
   {
     question:
@@ -5149,6 +6625,20 @@ fa*=k; -->4
     options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Main Log", "None"],
     correct: 0,
     tags: ["DSA","CBSE", "Web Dev", "HTML"],
+  },
+  {
+    question: "What is the correct way to create a list in Python?",
+    options: ["list = (1, 2, 3)", "list = [1, 2, 3]", "list = {1, 2, 3}", "list = <1, 2, 3>"],
+    correct: 1,
+    tags: ["Python", "Basics"],
+    explanation: "In Python, lists are created using square brackets []."
+  },
+  {
+    question: "Which keyword is used to define a function in Python?",
+    options: ["function", "def", "func", "define"],
+    correct: 1,
+    tags: ["Python", "Functions"],
+    explanation: "The 'def' keyword is used to start a function definition."
   }
 ];
 

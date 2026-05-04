@@ -33,7 +33,12 @@ function initCategorySelection() {
     }, {});
 
     // Get unique tags and sort them alphabetically
-    const tags = Object.keys(tagCounts).sort();
+    // Sort tags in descending order of question count, then alphabetically for ties
+    const tags = Object.keys(tagCounts).sort((a, b) => {
+        const countDiff = tagCounts[b] - tagCounts[a];
+        if (countDiff === 0) return a.localeCompare(b); // Sort alphabetically if counts are equal
+        return countDiff;
+    });
     
     const categoryButtons = document.getElementById('category-buttons');
     const categorySelection = document.getElementById('category-selection');
